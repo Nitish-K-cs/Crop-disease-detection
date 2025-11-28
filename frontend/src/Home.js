@@ -1,40 +1,64 @@
-// src/Home.js
 import React from "react";
-import leafIcon from "./leaf.jpg"; // <-- put a small leaf image in src/ as leaf.png
+import { useNavigate } from "react-router-dom";
+import leafIcon from "./assets/leafs.png"; // add a small leaf icon at src/leaf.png
+import cropImg from "./assets/crop-ai.png"; // keep your hero image path
 
-export default function Home({ onStart }) {
+export default function Home() {
+  const navigate = useNavigate();
+
+  const handleStart = () => {
+    navigate("/upload");
+  };
+
   return (
-    <div className="home-wrapper">
+    <div className="root">
+      {/* Shared navbar */}
+      <nav className="navbar">
+        <div className="navbar-inner">
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <img src={leafIcon} alt="leaf" style={{ width: 28, height: 28 }} />
+            <div className="navbar-title">AgriPredAI</div>
+          </div>
 
-      {/* ---------------- NAVBAR ---------------- */}
-      <nav className="home-navbar">
-        <div className="home-navbar-left">
-          <img src={leafIcon} alt="leaf" className="leaf-logo" />
-          <span className="brand-name">Afgritech</span>
-        </div>
-
-        <div className="home-navbar-right">
-          <button className="nav-btn login-btn">Login</button>
-          <button className="nav-btn register-btn">Register</button>
+          <div className="navbar-links">
+            <a className="nav-link nav-active" href="#predict">Predict</a>
+            {/* You may add other links here */}
+          </div>
         </div>
       </nav>
 
-      {/* ---------------- HOME CONTENT ---------------- */}
-      <div className="home-container">
-        <div className="home-left">
-          <h1 className="home-title">
-            PRECISION <br />
-            CROP DISEASE <br />
-            DETECTION AI
-          </h1>
+      {/* Hero (Home) */}
+      <section className="hero">
+        <div className="hero-inner">
+          <div className="hero-left">
+            <div className="mini-tag">AGRIPREDAI</div>
 
-          <button className="home-btn" onClick={onStart}>
-            Get Started
-          </button>
+            <h2 className="hero-title">
+              <span>Crop</span>
+              <span>Disease</span>
+              <span>Detection</span>
+              <span className="hero-ai">AI</span>
+            </h2>
+
+            <p className="hero-sub">Use AI to find plant diseases and improve your yield</p>
+
+            <div className="hero-cta">
+              <button className="btn btn-primary" onClick={handleStart}>
+                Start Detection
+              </button>
+            </div>
+          </div>
+
+          <div className="hero-right">
+            <div className="hero-graphic">
+              <div className="graphic-inner">
+                <img src={cropImg} alt="AI Crop Analysis" className="hero-image" />
+              </div>
+              <div className="graphic-tag">AI Vision</div>
+            </div>
+          </div>
         </div>
-
-        <div className="home-right"></div>
-      </div>
+      </section>
     </div>
   );
 }
