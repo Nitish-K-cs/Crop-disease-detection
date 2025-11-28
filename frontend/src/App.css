@@ -1,6 +1,6 @@
-/* src/App.css */
-
-/* Reset / body */
+/* -------------------------------------------------- */
+/* GLOBAL THEME VARIABLES                             */
+/* -------------------------------------------------- */
 :root{
   --green-900: #1b5e20;
   --green-700: #2e7d32;
@@ -14,6 +14,7 @@
 }
 
 * { box-sizing: border-box; }
+
 body {
   margin: 0;
   background: var(--green-100);
@@ -21,40 +22,178 @@ body {
   color: var(--green-900);
 }
 
-/* Navbar */
-.navbar {
-  background: var(--green-700);
-  color: var(--white);
-  padding: 14px 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  position: sticky;
-  top: 0;
-  z-index: 10;
+/* -------------------------------------------------- */
+/* HOME PAGE STYLES (Used by Home.js)                 */
+/* -------------------------------------------------- */
+
+.home-container {
+  display: flex;
+  height: 100vh;
+  background: var(--green-100);
 }
 
-.navbar-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 16px;
+.home-left {
+  width: 65%; /* 3/5 of screen */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 8%;
+}
+
+.home-title {
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--green-900);
+}
+
+.home-btn {
+  margin-top: 28px;
+  width: 220px;
+  padding: 14px 20px;
+  background: var(--green-700);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.home-btn:hover {
+  background: var(--green-900);
+}
+
+.home-right {
+  width: 35%;
+  background: linear-gradient(180deg, #c8e6c9, #a5d6a7);
+}
+
+
+/* -------------------------------------------------- */
+/* HOME NAVBAR (ONLY FOR Home.js)                     */
+/* -------------------------------------------------- */
+
+.home-wrapper {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-navbar {
+  height: 64px;
+  background: var(--white);
+  border-bottom: 1px solid #d4e5d4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.home-navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.leaf-logo {
+  width: 80px;
+  height: 80px;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--green-900);
+}
+
+.home-navbar-right {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.navbar-title {
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 0.2px;
+.nav-btn {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid transparent;
 }
 
-/* Page container */
+/* Login Button */
+.login-btn {
+  background: transparent;
+  color: var(--green-700);
+  border: 1px solid var(--green-500);
+}
+
+.login-btn:hover {
+  background: var(--green-100);
+}
+
+/* Register Button */
+.register-btn {
+  background: var(--green-700);
+  color: white;
+  border: none;
+}
+
+.register-btn:hover {
+  background: var(--green-900);
+}
+
+/* -------------------------------------------------- */
+/* APP.JS NAVBAR                                              */
+/* -------------------------------------------------- */
+
+.app-navbar {
+  height: 64px;
+  background: var(--white);
+  border-bottom: 1px solid #d4e5d4;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app-navbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.leaf-logo {
+  width: 80px;
+  height: 80px;
+}
+
+.app-brand-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--green-900);
+  letter-spacing: 0.3px;
+}
+
+/* -------------------------------------------------- */
+/* UPLOAD PAGE                                         */
+/* -------------------------------------------------- */
+
 .page {
   max-width: 760px;
   margin: 28px auto;
   padding: 0 16px 48px;
 }
 
-/* Upload title */
 .upload-title {
   text-align: center;
   margin: 18px 0;
@@ -72,7 +211,7 @@ body {
   box-shadow: 0 3px 10px rgba(0,0,0,0.04);
 }
 
-/* Label / file input */
+/* File input */
 .label {
   display: inline-block;
   cursor: pointer;
@@ -89,7 +228,7 @@ body {
   margin-top: 8px;
 }
 
-/* Preview */
+/* Image Preview */
 .previewWrap {
   margin-top: 14px;
   text-align: center;
@@ -103,7 +242,7 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
-/* Controls */
+/* Buttons */
 .controls {
   margin-top: 14px;
   display: flex;
@@ -119,6 +258,7 @@ body {
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
+  transition: 0.2s;
 }
 
 .button:hover { filter: brightness(0.95); }
@@ -129,7 +269,6 @@ body {
   color: #fff;
 }
 
-/* Clear button */
 .clearButton {
   padding: 10px 14px;
   background-color: #f1f8e9;
@@ -138,14 +277,14 @@ body {
   cursor: pointer;
 }
 
-/* Error */
+/* Error message */
 .error {
   margin-top: 12px;
   color: var(--danger);
   font-weight: 600;
 }
 
-/* Result card */
+/* Result Card */
 .resultCard {
   margin-top: 20px;
   background: var(--white);
@@ -154,28 +293,25 @@ body {
   border-radius: 12px;
 }
 
-/* Result heading */
 .resultHeading {
   margin: 0 0 8px 0;
   font-size: 18px;
   color: var(--green-900);
 }
 
-/* Result body layout */
 .resultBody {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
 }
 
-/* Badge + confidence layout */
+/* Status badge section */
 .resultSummary {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* Status badge (healthy vs disease) */
 .statusBadge{
   display: flex;
   flex-direction: column;
@@ -186,27 +322,27 @@ body {
   min-width: 180px;
 }
 
-/* Healthy - green */
+/* Healthy */
 .badgeHealthy {
   background: linear-gradient(180deg, #43a047 0%, #2e7d32 100%);
 }
 
-/* Disease - orange/red */
+/* Diseased */
 .badgeDisease {
   background: linear-gradient(180deg, #ff8a65 0%, #ef6c00 100%);
 }
 
-/* Badge text */
 .badgeTitle {
   font-size: 14px;
   font-weight: 700;
 }
+
 .badgeCrop {
   font-size: 16px;
   font-weight: 600;
 }
 
-/* Confidence box */
+/* Confidence Box */
 .confidenceBox {
   display: flex;
   gap: 12px;
@@ -222,13 +358,14 @@ body {
   font-size: 13px;
   color: var(--muted);
 }
+
 .confidenceValue {
   font-size: 18px;
   font-weight: 700;
   color: var(--green-900);
 }
 
-/* Advice */
+/* Advice box */
 .actionHint {
   background: #fff7e6;
   border: 1px solid #ffe0b2;
@@ -238,7 +375,7 @@ body {
   font-size: 14px;
 }
 
-/* Raw pre block */
+/* JSON block */
 .pre {
   background: #f7fff6;
   padding: 12px;
@@ -255,7 +392,7 @@ body {
   color: var(--green-700);
 }
 
-/* Responsive */
+/* Responsive behavior */
 @media (min-width: 720px) {
   .resultBody {
     grid-template-columns: 320px 1fr;

@@ -2,8 +2,12 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
+import Home from "./Home";
+import leafIcon from "./leaf.jpg";
 
 function App() {
+  const [view, setView] = useState("home"); // show home first
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [data, setData] = useState(null);
@@ -103,7 +107,7 @@ function App() {
       : null;
 
     // Healthy detection heuristics: if status contains "healthy"
-    const isHealthy = status.includes("healthy") || status.includes("healthy");
+    const isHealthy = status.includes("healthy");
 
     return (
       <div className="resultSummary">
@@ -131,13 +135,20 @@ function App() {
   const rawClass = getClassRaw(data);
   const confidence = getConfidence(data);
 
+  // Show HOME view
+  if (view === "home") {
+    return <Home onStart={() => setView("upload")} />;
+  }
+
+  // UPLOAD PAGE (existing UI)
   return (
     <div className="root">
-      <nav className="navbar">
-        <div className="navbar-inner">
-          <div className="navbar-title">AgriTech</div>
-        </div>
-      </nav>
+      <nav className="app-navbar">
+  <div className="app-navbar-inner">
+    <img src={leafIcon} alt="leaf" className="leaf-logo" />
+    <span className="app-brand-name">Afgritech</span>
+  </div>
+</nav>
 
       <main className="page">
         <h1 className="upload-title">Upload your leaf</h1>
