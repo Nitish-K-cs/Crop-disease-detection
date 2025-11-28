@@ -1,38 +1,268 @@
-.App {
+/* src/App.css */
+
+/* Reset / body */
+:root{
+  --green-900: #1b5e20;
+  --green-700: #2e7d32;
+  --green-500: #66bb6a;
+  --green-100: #e8f5e9;
+  --card-border: #c8e6c9;
+  --muted: #6d6d6d;
+  --danger: #c62828;
+  --orange: #ef6c00;
+  --white: #ffffff;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--green-100);
+  font-family: Inter, Roboto, "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--green-900);
+}
+
+/* Navbar */
+.navbar {
+  background: var(--green-700);
+  color: var(--white);
+  padding: 14px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-title {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+/* Page container */
+.page {
+  max-width: 760px;
+  margin: 28px auto;
+  padding: 0 16px 48px;
+}
+
+/* Upload title */
+.upload-title {
+  text-align: center;
+  margin: 18px 0;
+  color: var(--green-900);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+/* Card */
+.card {
+  background: var(--white);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+}
+
+/* Label / file input */
+.label {
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px 14px;
+  border: 1px dashed var(--green-500);
+  border-radius: 10px;
+  color: var(--green-700);
+  font-weight: 600;
+  background: #f7fff6;
+}
+
+.fileInput {
+  display: block;
+  margin-top: 8px;
+}
+
+/* Preview */
+.previewWrap {
+  margin-top: 14px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.preview {
+  max-width: 100%;
+  max-height: 360px;
+  border-radius: 10px;
+  border: 2px solid var(--card-border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Controls */
+.controls {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.button {
+  padding: 10px 18px;
+  background-color: var(--green-700);
+  color: var(--white);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.button:hover { filter: brightness(0.95); }
+
+.buttonDisabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+  color: #fff;
+}
+
+/* Clear button */
+.clearButton {
+  padding: 10px 14px;
+  background-color: #f1f8e9;
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Error */
+.error {
+  margin-top: 12px;
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* Result card */
+.resultCard {
+  margin-top: 20px;
+  background: var(--white);
+  border: 1px solid var(--card-border);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+/* Result heading */
+.resultHeading {
+  margin: 0 0 8px 0;
+  font-size: 18px;
+  color: var(--green-900);
+}
+
+/* Result body layout */
+.resultBody {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+/* Badge + confidence layout */
+.resultSummary {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+
+/* Status badge (healthy vs disease) */
+.statusBadge{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 10px;
+  color: #fff;
+  min-width: 180px;
+}
+
+/* Healthy - green */
+.badgeHealthy {
+  background: linear-gradient(180deg, #43a047 0%, #2e7d32 100%);
+}
+
+/* Disease - orange/red */
+.badgeDisease {
+  background: linear-gradient(180deg, #ff8a65 0%, #ef6c00 100%);
+}
+
+/* Badge text */
+.badgeTitle {
+  font-size: 14px;
+  font-weight: 700;
+}
+.badgeCrop {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* Confidence box */
+.confidenceBox {
+  display: flex;
+  gap: 12px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #e8f5e9;
+  background: #fbfff9;
+  max-width: 240px;
 }
 
-.App-link {
-  color: #61dafb;
+.confidenceLabel {
+  font-size: 13px;
+  color: var(--muted);
+}
+.confidenceValue {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--green-900);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Advice */
+.actionHint {
+  background: #fff7e6;
+  border: 1px solid #ffe0b2;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #6b4a00;
+  font-size: 14px;
+}
+
+/* Raw pre block */
+.pre {
+  background: #f7fff6;
+  padding: 12px;
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid #e0f2e9;
+  color: var(--green-900);
+}
+
+/* Footer */
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  color: var(--green-700);
+}
+
+/* Responsive */
+@media (min-width: 720px) {
+  .resultBody {
+    grid-template-columns: 320px 1fr;
+    align-items: start;
   }
-  to {
-    transform: rotate(360deg);
+
+  .resultSummary {
+    align-items: start;
   }
 }
