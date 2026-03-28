@@ -6,3 +6,6 @@ pillow
 tensorflow-serving-api
 matplotlib
 numpy
+django
+django_rest_framework
+django-cors-headers
