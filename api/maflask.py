@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Load model
-MODEL = tf.keras.models.load_model(r"F:\CODES\Web development\crop-detection\models\1.keras")
+MODEL = tf.keras.models.load_model(r"..\models\1.keras")
 
 CLASS_NAMES = ["Potato___Early_blight", "Potato___Late_blight", "Potato___healthy"]
 
